@@ -10,7 +10,7 @@ public class Facility implements Serializable {
     public final String street;
     public final String city;
     public final String code;
-    public static final List<Room> allRooms = new ArrayList<>();
+    public static final List<Room> allRooms = new ArrayList<>(); // todo kompozycja - statyczna lista!!!!!
     public final List<Room> roomsInFacility;
 
     public Facility(String street, String city, String code, List<Room> roomsInFacility, List<String> equipment, double roomSurface) {

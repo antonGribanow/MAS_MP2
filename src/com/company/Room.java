@@ -11,7 +11,7 @@ class Room implements Serializable {
     private Facility facility;
     double roomSurface;
 
-    private Room(List<String> equipment, Facility facility, double roomSurface) { // todo kompozycja - 1 zasada
+    private Room(List<String> equipment, Facility facility, double roomSurface) { // todo kompozycja - 1 zasada (PRYWATNY KONSTRUKTOR)
         this.equipment = equipment;
         this.facility = facility;
         this.roomSurface = roomSurface;
@@ -22,6 +22,7 @@ class Room implements Serializable {
         if (facility == null) {
             throw new Exception("No facility");
         }
+//        createRoom(equipment, facility, roomSurface); - TAK NIE ROBIMY
         Room room = new Room(equipment, facility, roomSurface);
         facility.addRoom(room);
         return room;

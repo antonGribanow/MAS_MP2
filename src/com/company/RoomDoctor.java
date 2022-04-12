@@ -14,3 +14,25 @@ public class RoomDoctor { // todo asocjacja z atrybutem
     }
 
 }
+
+class X { // z atrubutem
+    private String str;
+
+    public X(String str) {
+        this.str = str;
+    }
+}
+
+class Y { // bez atrybutu
+ private String str = "źegnam";
+}
+
+class Z {
+    String s = "hej";
+X x = new X(s);
+
+
+X x = new X();
+
+Y y = new Y();
+}

@@ -9,15 +9,24 @@ public class Visit implements Serializable {
     public static int basicVisitCost = 200;
     public final UUID idVisit;
     public final GregorianCalendar visitDate;
-    public final Room room;
+    public final Room room; // todo asocjacja zwykla
     public final String paymentMethod;
     public String additionalInformation = null;
     public final Test test;
     public final Patient patient;
     private static List<Visit> allVisits = new ArrayList<>();
     public final Map<UUID, Patient> uuidPatientMap; // todo asocjacja kwalifikowana
+    /* -- mapa
+    1hdjagsjkdhajkdsakjsd12313@#$jhijohjdsf38475389475 -> Maciek,
+    2 -> Anton
+     */
 
-    public Visit(GregorianCalendar visitDate, Room room, String paymentMethod, String additionalInformation, Test test, Patient patient) {
+    public Visit(GregorianCalendar visitDate,
+                 Room room,
+                 String paymentMethod,
+                 String additionalInformation,
+                 Test test,
+                 Patient patient) {
         this.idVisit = UUID.randomUUID();
         this.visitDate = visitDate;
         this.room = room;
@@ -29,11 +38,12 @@ public class Visit implements Serializable {
 //        addVisit(this);
     }
 
-    public void addUuidPatient(Patient patient) { // todo asocjacja kwalifikowana - dodawanie
+    public void addUuidPatient(Patient patient) throws Exception { // todo asocjacja kwalifikowana - dodawanie
         if (!uuidPatientMap.containsKey(patient.id)) {
             uuidPatientMap.put(patient.id, patient);
             patient.addVisit(this); // todo reverse connection
         }
+        throw new Exception("Object with this id already is added!");
     }
 
     public Patient findPatientByUuid(UUID uuid) throws Exception { // todo asocjacja kwalifikowana - wyszukiwanie
